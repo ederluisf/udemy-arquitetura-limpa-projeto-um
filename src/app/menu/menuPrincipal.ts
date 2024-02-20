@@ -1,16 +1,15 @@
-import TerminalUtil from "@/util/terminalUtil";
-import { terminal } from "terminal-kit";
+import TerminalUtil from "@/app/util/terminalUtil";
 import menuFundamentos from "./menuFundamentos";
 
 export default async function menuPrincipal() {
   TerminalUtil.titulo("Menu Principal");
 
-  const resposta = await terminal.singleColumnMenu([
+  const [indice] = await TerminalUtil.menu([
     '1. Fundamentos',
     'Sair'
-  ]).promise;
+  ]);
 
-  switch (resposta.selectedIndex) {
+  switch (indice) {
     case 0:
       await menuFundamentos();
       break;
