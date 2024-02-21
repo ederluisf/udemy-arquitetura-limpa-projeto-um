@@ -1,6 +1,5 @@
 import TerminalUtil from "@/app/util/terminalUtil";
-import dip from "../fundamentos/dip";
-import polimorfismo from "../fundamentos/polimorfismo";
+import registrarUsuario from "../usuario/registrarUsuario";
 
 export default async function menuUsuario() {
   TerminalUtil.titulo("Usuário");
@@ -12,7 +11,7 @@ export default async function menuUsuario() {
 
   switch (indice) {
     case 0:
-      await polimorfismo();
+      await registrarUsuario();
       break;
     default:
       return;
