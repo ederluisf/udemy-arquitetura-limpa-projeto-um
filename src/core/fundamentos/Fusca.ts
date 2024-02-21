@@ -8,14 +8,14 @@ export default class Fusca implements Carro {
 
   acelerar(): void {
     this._velocidadeAtual = Math.min(
-      this._velocidadeAtual + 5,
+      this._velocidadeAtual + 2,
       this.velocidadeMaxima
     );
   }
   
   frear(): void {
     this._velocidadeAtual = Math.max(
-      this._velocidadeAtual - 5,
+      this._velocidadeAtual - 2,
       0
     );
   }
