@@ -5,6 +5,6 @@ export default class RegistrarUsusario implements CasoDeUso<Usuario, void> {
   
   async executar(usuario: Usuario): Promise<void> {
     const senhaCripto = usuario.senha.split('').reverse().join('');
-    console.log(senhaCripto);
+    console.log(`\n\n${senhaCripto}`);
   }
 }
