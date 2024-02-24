@@ -1,8 +1,7 @@
+import SenhaCripto from "@/adapter/auth/SenhaCripto";
 import Usuario from "@/core/usuario/model/Usuario";
 import RegistrarUsusario from "@/core/usuario/service/RegistrarUsuario";
 import TerminalUtil from "../util/terminalUtil";
-import InverterSenhaCripto from "@/adapter/auth/InverterSenhaCripto";
-import EspacoSenhaCripto from "@/adapter/auth/EspacoSenhaCripto";
 
 export default async function registrarUsuario() {
   TerminalUtil.titulo("Registrar Usuário");
@@ -17,7 +16,7 @@ export default async function registrarUsuario() {
     senha
   };
 
-  const provedorCripto = new InverterSenhaCripto();
+  const provedorCripto = new SenhaCripto();
   const casoDeUso = new RegistrarUsusario(provedorCripto);
 
   await casoDeUso.executar(usuario);
