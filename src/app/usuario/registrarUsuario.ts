@@ -17,17 +17,14 @@ export default async function registrarUsuario() {
     senha
   };
 
-  const repositorio = new RepositorioUsuarioPostgre();
-  const provedorCripto = new SenhaCripto();
-  const casoDeUso = new RegistrarUsusario(repositorio, provedorCripto);
-
-  await casoDeUso.executar(usuario);
-  
-  TerminalUtil.sucesso(`\n\nUsuário ${nome} registrado com sucesso!\n`);
-  await TerminalUtil.esperarEnter();
-  
   try {
-    await casoDeUso.executar(usuario);  
+    const repositorio = new RepositorioUsuarioPostgre();
+    const provedorCripto = new SenhaCripto();
+    const casoDeUso = new RegistrarUsusario(repositorio, provedorCripto);
+  
+    await casoDeUso.executar(usuario);
+    
+    TerminalUtil.sucesso(`\n\nUsuário ${nome} registrado com sucesso!\n`);
   } catch(e: any) {
     TerminalUtil.erro(e.message);
   } finally {
